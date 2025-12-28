@@ -1,0 +1,16 @@
+.product-links a {
+    text-decoration: none;
+}
+.product-links a:hover{
+    color:black !important;
+    cursor: pointer;
+}
+
+.product-stores{
+    display: flex;
+    gap:20px;
+}
+.product-stores a:hover{
+    cursor: pointer;
+    opacity: 0.8;
+}

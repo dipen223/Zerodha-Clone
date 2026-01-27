@@ -1,59 +1,60 @@
 export const watchlist = [
   {
-    name: "INFY",
-    price: 1555.45,
-    percent: "-1.60%",
-    isDown: true,
-  },
-  {
-    name: "ONGC",
-    price: 116.8,
-    percent: "-0.09%",
-    isDown: true,
-  },
-  {
-    name: "TCS",
-    price: 3194.8,
-    percent: "-0.25%",
-    isDown: true,
-  },
-  {
-    name: "KPITTECH",
-    price: 266.45,
-    percent: "3.54%",
+    name: "AAPL", // Apple
+    price: 189.45,
+    percent: "1.12%",
     isDown: false,
   },
   {
-    name: "QUICKHEAL",
-    price: 308.55,
-    percent: "-0.15%",
+    name: "MSFT", // Microsoft
+    price: 412.8,
+    percent: "-0.45%",
     isDown: true,
   },
   {
-    name: "WIPRO",
-    price: 577.75,
-    percent: "0.32%",
+    name: "GOOGL", // Alphabet
+    price: 153.6,
+    percent: "0.88%",
     isDown: false,
   },
   {
-    name: "M&M",
-    price: 779.8,
-    percent: "-0.01%",
+    name: "AMZN", // Amazon
+    price: 171.25,
+    percent: "-0.32%",
     isDown: true,
   },
   {
-    name: "RELIANCE",
-    price: 2112.4,
-    percent: "1.44%",
+    name: "META", // Meta (Facebook)
+    price: 484.9,
+    percent: "2.15%",
     isDown: false,
   },
   {
-    name: "HUL",
-    price: 512.4,
-    percent: "1.04%",
+    name: "TSLA", // Tesla
+    price: 217.4,
+    percent: "-1.90%",
+    isDown: true,
+  },
+  {
+    name: "NVDA", // NVIDIA
+    price: 621.55,
+    percent: "3.28%",
+    isDown: false,
+  },
+  {
+    name: "NFLX", // Netflix
+    price: 587.3,
+    percent: "-0.67%",
+    isDown: true,
+  },
+  {
+    name: "JPM", // JPMorgan Chase
+    price: 176.85,
+    percent: "0.54%",
     isDown: false,
   },
 ];
+
 
 // holdings
 export const holdings = [

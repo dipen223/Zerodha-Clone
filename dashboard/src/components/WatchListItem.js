@@ -51,6 +51,9 @@ const WatchListActions = ({ uid }) => {
        const handleBuyClick = () => {
      generalContext.openBuyDialog(uid);
     };
+       const handleSellClick = () => {
+     generalContext.openSellDialog(uid);
+    };
 
     return (
         <span className='actions'>
@@ -76,7 +79,7 @@ const WatchListActions = ({ uid }) => {
                     }}
 
                 >
-                    <button className='sell'>Sell</button>
+                    <button className='sell' onClick={() => handleSellClick(uid)}>Sell</button>
                 </Tooltip>
                 <Tooltip
                     title="Graph (G)"

@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 
 import BuyDialog from './BuyDialog';
-
+import SellDialog from './SellDialog';
 
 const GeneralContext = React.createContext({
     openBuyDialog:(uid) => {},
@@ -10,6 +10,7 @@ const GeneralContext = React.createContext({
 
 export const GeneralContextProvider = (props) =>{
     const [isBuyDialogOpen,setIsBuyDialogOpen] = useState(false);
+    const [isSellDialogOpen,setIsSellDialogOpen] = useState(false);
     const [selectedStockUID,setSelectedStockUID] = useState("");
 
 
@@ -17,9 +18,17 @@ export const GeneralContextProvider = (props) =>{
         setIsBuyDialogOpen(true);
         setSelectedStockUID(uid);
     };
+    const handleOpenSellDialog = (uid) =>{
+        setIsSellDialogOpen(true);
+        setSelectedStockUID(uid);
+    };
 
     const handleCloseBuyDialog = ()=>{
         setIsBuyDialogOpen(false);
+        setSelectedStockUID("");
+    };
+    const handleCloseSellDialog = ()=>{
+        setIsSellDialogOpen(false);
         setSelectedStockUID("");
     };
 
@@ -28,10 +37,13 @@ export const GeneralContextProvider = (props) =>{
         value={{
             openBuyDialog:handleOpenBuyDialog,
             closeBuyDialog:handleCloseBuyDialog,
+            openSellDialog:handleOpenSellDialog,
+            closeSellDialog:handleCloseSellDialog,
         }}
         >
             {props.children}
             {isBuyDialogOpen && <BuyDialog uid={selectedStockUID}/>}
+            {isSellDialogOpen && <SellDialog uid={selectedStockUID}/>}
         </GeneralContext.Provider>
     );
 };

@@ -6,6 +6,7 @@ const HoldingSchema  = new Schema({
     price: Number,
     net: String,
     day: String,
+ 
 });
 
 

@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 
 import BuyDialog from './BuyDialog';
 
+
 const GeneralContext = React.createContext({
     openBuyDialog:(uid) => {},
     closeBuyDialog: () => {},

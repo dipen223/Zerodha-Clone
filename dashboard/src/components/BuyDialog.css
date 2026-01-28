@@ -1,0 +1,77 @@
+.buy-dialog-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 30px;
+  width: 350px;
+  max-width: 90vw;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.buy-dialog-container h2 {
+  margin: 0;
+  text-align: center;
+  font-size: 1.4rem;
+  color: #333;
+}
+
+.input-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.input-fields fieldset {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 10px;
+}
+
+.input-fields legend {
+  font-weight: bold;
+  padding: 0 5px;
+}
+
+.input-fields input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 4px;
+  border: 1px solid #aaa;
+  font-size: 1rem;
+}
+
+.dialog-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.dialog-buttons .btn {
+  flex: 1;
+  padding: 10px 0;
+  border-radius: 6px;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.dialog-buttons .btn-blue {
+  background-color: #1976d2;
+  color: #fff;
+}
+
+.dialog-buttons .btn-blue:hover {
+  background-color: #125ea2;
+}
+
+.dialog-buttons .btn-grey {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.dialog-buttons .btn-grey:hover {
+  background-color: #bdbdbd;
+}

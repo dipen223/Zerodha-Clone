@@ -4,6 +4,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
+const authRoute = require("./Routes/AuthRoutes");
 
 
 const PORT = process.env.PORT || 8080;
@@ -18,6 +20,11 @@ const {HoldingsModel} = require("./model/HoldingsModel");
 const {PositionsModel} = require("./model/PositionsModel");
 const {OrdersModel} = require("./model/OrdersModel");
 
+
+
+app.use("/",authRoute);
+
+app.use(cookieParser());
 
 app.get("/allHoldings",async(req,res) => {
     let allHoldings = await HoldingsModel.find({});

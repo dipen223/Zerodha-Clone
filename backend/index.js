@@ -39,7 +39,18 @@ app.post("/newOrder",async(req,res) => {
   newOrder.save();
   res.send("order saved");
 
-})
+});
+app.post("/sellOrder",async(req,res) => {
+  let newOrder  =  new OrdersModel({
+    name: req.body.name, 
+    qty:req.body.qty,
+    price: req.body.price,
+    mode:req.body.mode,
+  })
+  newOrder.save();
+  res.send("stock sold");
+
+});
 
 
 mongoose.connect(uri).then(() => {

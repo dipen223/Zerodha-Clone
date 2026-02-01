@@ -13,18 +13,21 @@ const uri = process.env.MONGO_URL;
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin:"http://localhost:3000",
+  credentials:true
+}));
 app.use(bodyParser.json());
 
 const {HoldingsModel} = require("./model/HoldingsModel");
 const {PositionsModel} = require("./model/PositionsModel");
 const {OrdersModel} = require("./model/OrdersModel");
 
-
+app.use(cookieParser());
 
 app.use("/",authRoute);
 
-app.use(cookieParser());
+
 
 app.get("/allHoldings",async(req,res) => {
     let allHoldings = await HoldingsModel.find({});

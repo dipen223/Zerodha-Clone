@@ -6,6 +6,7 @@ const bcrypt = require("bcrypt");
 const Signup = async(req,res,next) =>{
     try{
         const{email,username,password} = req.body;
+        console.log(email);
         const existingUser = await User.findOne({email});
         if(existingUser){
             return res.json({message:"User already exists"});

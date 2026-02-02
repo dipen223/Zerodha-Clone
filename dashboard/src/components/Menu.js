@@ -1,10 +1,48 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 
-import { Link } from "react-router-dom";
+
+import { Link ,useNavigate} from "react-router-dom";
+import {useCookies} from "react-cookie";
+
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
 
 const Menu = () => {
   const [selectedMenu, setSelectedMenu] = useState(0);
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
+    const navigate = useNavigate();
+  const [cookies, removeCookie] = useCookies([]);
+  const [username, setUsername] = useState("");
+
+ useEffect(()=>{
+    const verifyCookie = async() => {
+      if(!cookies.token){
+        navigate("/login");
+        return;
+      }
+      const {data} = await axios.post(
+        "http://localhost:8080",
+        {},
+        { withCredentials: true }
+      );
+      const {status,user} = data;
+      setUsername(user);
+      if(status){
+        toast(`Hello ${user}`, { position: "top-right" });
+      } else {
+        removeCookie("token");
+        navigate("/login");
+      }
+    };
+
+    verifyCookie();
+}, []); // run only once on mount
+
+const Logout = ()=>{
+  removeCookie("token");
+  navigate("http://localhost:3000/");
+};
+
 
   const handleMenuClick = (index) => {
     setSelectedMenu(index);
@@ -92,10 +130,17 @@ const Menu = () => {
         <hr />
         <div className="profile" onClick={handleProfileClick}>
           <div className="avatar">ZU</div>
-          <p className="username">USERID</p>
+          <p className="username">{username}</p>
+          {isProfileDropdownOpen && (
+            <div>
+              <button onClick={Logout}>Logout</button>
+            </div>
+          )}
         </div>
       </div>
+      <ToastContainer />
     </div>
+      
   );
 };
 

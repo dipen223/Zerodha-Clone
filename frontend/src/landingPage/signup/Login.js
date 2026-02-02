@@ -4,6 +4,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 
 const Login = () => {
+  const navigate = useNavigate();
     const [inputValue, setInputValue] = useState({
           email: "",
           password: "",
@@ -30,7 +31,7 @@ const Login = () => {
     const handleSubmit = async(e) =>{
       e.preventDefault();
       try{
-        const {data} = await axios.post("http://localhost:4000/login",{
+        const {data} = await axios.post("http://localhost:8080/login",{
           ...inputValue,
         },
         {withCredentials:true}
@@ -40,7 +41,7 @@ const Login = () => {
       if(success){
         handleSuccess(message);
         setTimeout(()=>{
-          navigate("/");
+          navigate("http://localhost:3001/");
         },1000)
       }else{
         handleError(message);

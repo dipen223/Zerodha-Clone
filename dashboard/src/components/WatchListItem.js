@@ -45,7 +45,6 @@ const WatchListItem = ({ stock, key }) => {
 
 export default WatchListItem
 
-
 const WatchListActions = ({ uid }) => {
       const generalContext = useContext(GeneralContext);
        const handleBuyClick = () => {

@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from "react";
 import axios from 'axios';
-
+import { VerticalChart } from "./VerticalChart";
 
 
 const Holdings = () => {
@@ -10,7 +10,20 @@ const Holdings = () => {
     axios.get("http://localhost:8080/allHoldings").then((res) => {
       setAllHoldings(res.data);
     })
-  },[])
+  },[]);
+
+  const labels = allHoldings.map((holding) => holding["name"]);
+  const data = {
+    labels,
+    datasets:[
+      {
+         
+      label: 'Stock Price',
+      data: allHoldings.map((stock) => stock.price),
+      backgroundColor: 'rgba(255, 99, 132, 0.5)',
+      },
+    ]
+  };
 
   return (
     <>
@@ -50,8 +63,10 @@ const Holdings = () => {
           })}
         </table>
       </div>
+      <VerticalChart data={data}/>
     </>
   );
 };
+
 
 export default Holdings;

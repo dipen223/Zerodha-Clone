@@ -40,7 +40,8 @@ const Menu = () => {
 
 const Logout = ()=>{
   removeCookie("token");
-  navigate("http://localhost:3000/");
+  window.location.href = "https://main.d2ruveth5jwm9w.amplifyapp.com/"
+
 };
 
 

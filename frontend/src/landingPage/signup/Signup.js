@@ -36,7 +36,7 @@
         const handleSubmit = async(e)=>{
             e.preventDefault();
             try{
-                const {data} = await axios.post("http://localhost:8080/signup",
+                const {data} = await axios.post("https://zerodha-clone-2qba.onrender.com/signup",
                     {
                         ...inputValue,
                     },

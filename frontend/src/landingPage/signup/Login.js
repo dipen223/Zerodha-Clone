@@ -31,7 +31,7 @@ const Login = () => {
     const handleSubmit = async(e) =>{
       e.preventDefault();
       try{
-        const {data} = await axios.post("http://localhost:8080/login",{
+        const {data} = await axios.post("https://zerodha-clone-2qba.onrender.com/login",{
           ...inputValue,
         },
         {withCredentials:true}
@@ -41,7 +41,7 @@ const Login = () => {
       if(success){
         handleSuccess(message);
         setTimeout(()=>{
-          navigate("http://localhost:3001/");
+          navigate("https://main.d2ruveth5jwm9w.amplifyapp.com/");
         },1000)
       }else{
         handleError(message);

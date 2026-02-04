@@ -41,7 +41,7 @@ const Login = () => {
       if(success){
         handleSuccess(message);
         setTimeout(()=>{
-             window.location.href = "https://main.d2ruveth5jwm9w.amplifyapp.com/";
+             window.location.href = "https://main.dn7j5igxw88uq.amplifyapp.com/";
         },1000)
       }else{
         handleError(message);
